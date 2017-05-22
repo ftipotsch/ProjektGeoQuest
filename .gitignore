@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+.idea/
 /compiled/
 /tmp/
 /Latex Vorlage HAK Imst.lol
@@ -40,3 +44,8 @@ Latex Vorlage HAK Imst.log
 .Trashes
 ehthumbs.db
 Thumbs.db
+*.xml
+>>>>>>> origin/Production
+.idea
+*.xml
+.idea
