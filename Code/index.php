@@ -1,7 +1,12 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Floo
- * Date: 22.05.2017
- * Time: 14:24
- */
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel ="" href="">
+    <script src=""></script>
+</head>
+<body>
+
+
+</body>
+</html>

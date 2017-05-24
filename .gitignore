@@ -46,6 +46,7 @@ ehthumbs.db
 Thumbs.db
 *.xml
 >>>>>>> origin/Production
-.idea
+.idea/*
 *.xml
 .idea
+.idea/workspace.xml
