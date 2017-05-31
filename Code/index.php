@@ -28,13 +28,13 @@
 <p><a href="index.php">Index</a></p>
 
 
-<div id="map"></div>
+<div id="map" style="height: 400px;width: 400px"></div>
 <script>
     var map;
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
+            center: {lat: 47.2105455, lng: 10.7184836},
+            zoom: 10
         });
     }
 </script>
