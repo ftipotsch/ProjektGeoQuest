@@ -43,6 +43,7 @@
             position: myLatlng,
             map: map,
             title: 'Frage'
+
         });
         /*
         //Wenn die Karte Bewegt wird, zentriert die Karte wieder über dem Marker
@@ -59,7 +60,7 @@
             map.setCenter(marker.getPosition());
             var url = "Fragen.php";
             window.location = url;
-            window.location.replace (url);
+
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
         // GEO LOCATION sets center of Map to User Position
