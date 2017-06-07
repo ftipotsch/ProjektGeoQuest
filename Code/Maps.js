@@ -14,8 +14,8 @@ function initMap() {
         position: myLatlng,
         map: map,
         title: 'Frage'
-
-    });
+        }
+    );
     /*
      //Wenn die Karte Bewegt wird, zentriert die Karte wieder über dem Marker
      map.addListener('center_changed', function() {
@@ -29,7 +29,7 @@ function initMap() {
     marker.addListener('click', function() {
         map.setZoom(10);
         map.setCenter(marker.getPosition());
-        var url = "Fragen.php";
+        var url = "Fragen.php?id=" + id;
         window.location = url;
 
     });
