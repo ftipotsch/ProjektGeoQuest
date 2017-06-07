@@ -41,6 +41,10 @@ try {
 $sql = "CREATE TABLE Questions (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     question VARCHAR (100) NOT NULL,
+    answer1 VARCHAR (100) NOT NULL,
+    answer2 VARCHAR (100) NOT NULL,
+    answer3 VARCHAR (100) NOT NULL,
+    answer4 VARCHAR (100) NOT NULL,
     creator VARCHAR(50) NOT NULL,
     x_coordinates VARCHAR (30),
     y_coordinates VARCHAR (30),
