@@ -62,7 +62,7 @@
             window.location = url;
 
         });
-        var infoWindow = new google.maps.InfoWindow({map: map});
+        //var infoWindow = new google.maps.InfoWindow({map: map});
         // GEO LOCATION sets center of Map to User Position
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
