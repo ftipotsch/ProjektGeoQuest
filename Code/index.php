@@ -28,14 +28,15 @@
 <p><a href="index.php">Index</a></p>
 
 
-<div id="map" style="height: 400px;width: 400px"></div>
+<div id="map" style="height: 400px"></div>
 <script>
     var map;
     function initMap() {
         var myLatlng = {lat: 47.2105455, lng: 10.7184836};
 
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
+            zoom: 10
+            ,
             center: myLatlng
         });
         var marker = new google.maps.Marker({
@@ -43,7 +44,8 @@
             map: map,
             title: 'Click to zoom'
         });
-
+        /*
+        //Wenn die Karte Bewegt wird, zentriert die Karte wieder über dem Marker
         map.addListener('center_changed', function() {
             // 3 seconds after the center of the map has changed, pan back to the
             // marker.
@@ -51,13 +53,13 @@
                 map.panTo(marker.getPosition());
             }, 3000);
         });
-
+        */
         marker.addListener('click', function() {
-            map.setZoom(8);
+            map.setZoom(10);
             map.setCenter(marker.getPosition());
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
-
+        // GEO LOCATION sets center of Map to User Position
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -65,9 +67,9 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
-
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('Location found.');
+                //INFO BOX
+                //infoWindow.setPosition(pos);
+                //infoWindow.setContent('Location found.');
                 map.setCenter(pos);
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
