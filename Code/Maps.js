@@ -2,20 +2,36 @@
  * Created by Floo on 07.06.2017.
  */
 var map;
+var id = 0;
+
+
 function initMap() {
     var myLatlng = {lat: 47.2105455, lng: 10.7184836};
-
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10
         ,
         center: myLatlng
     });
-    var marker = new google.maps.Marker({
+
+    while(id<5){
+        id++;
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Frage ' + id
+        });
+    }
+    /*var marker1 = new google.maps.Marker({
         position: myLatlng,
         map: map,
         title: 'Frage'
         }
     );
+    */
+
+
+
+
     /*
      //Wenn die Karte Bewegt wird, zentriert die Karte wieder über dem Marker
      map.addListener('center_changed', function() {
@@ -27,8 +43,6 @@ function initMap() {
      });
      */
     marker.addListener('click', function() {
-        map.setZoom(10);
-        map.setCenter(marker.getPosition());
         var url = "Fragen.php?id=" + id;
         window.location = url;
 
@@ -67,3 +81,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
 }
+
