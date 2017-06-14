@@ -12,22 +12,34 @@ function initMap() {
         ,
         center: myLatlng
     });
+    var infowindow = new google.maps.InfoWindow();
+    var locations = [
+        ['4', 47.2105455, 10.7184836, 4],
+        ['5', 47.2105455, 15.7184836, 5],
+        ['3', 47.2105455, 20.7184836, 3],
+        ['2', 47.2105455, 30.7184836, 2],
+        ['1', 47.2105455, 25.7184836, 1]
+    ];
 
-    while(id<5){
-        id++;
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map,
-            title: 'Frage ' + id
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
         });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                //infowindow.setContent(locations[i][0]);
+                //infowindow.open(map, marker);
+                id = locations[i][3]
+                var url = "Fragen.php?id=" + id;
+                window.location = url;
+            }
+        })(marker, i));
     }
-    /*var marker1 = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title: 'Frage'
-        }
-    );
-    */
 
 
 
@@ -41,7 +53,7 @@ function initMap() {
      map.panTo(marker.getPosition());
      }, 3000);
      });
-     */
+
     marker.addListener('click', function() {
         var url = "Fragen.php?id=" + id;
         window.location = url;
@@ -50,6 +62,7 @@ function initMap() {
     //var infoWindow = new google.maps.InfoWindow({map: map});
     // GEO LOCATION sets center of Map to User Position
     // Try HTML5 geolocation.
+    */
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
