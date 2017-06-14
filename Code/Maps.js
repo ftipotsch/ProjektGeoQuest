@@ -12,13 +12,12 @@ function initMap() {
         ,
         center: myLatlng
     });
-    var infowindow = new google.maps.InfoWindow();
     var locations = [
-        ['4', 47.2105455, 10.7184836, 4],
-        ['5', 47.2105455, 15.7184836, 5],
-        ['3', 47.2105455, 20.7184836, 3],
-        ['2', 47.2105455, 30.7184836, 2],
-        ['1', 47.2105455, 25.7184836, 1]
+        ['Imst', 47.240238, 10.739595, 1],
+        ['Haiming', 47.255817, 10.883267, 2],
+        ['Mieming', 47.305761, 10.974388, 3],
+        ['Innsbruck Hauptbahnhof', 47.264665, 11.400367, 4],
+        ['Fügen', 47.346790, 11.849369, 5]
     ];
 
 
@@ -27,9 +26,9 @@ function initMap() {
     for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-            map: map
+            map: map,
+            titel: locations[i][0]
         });
-
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
                 //infowindow.setContent(locations[i][0]);
@@ -38,6 +37,7 @@ function initMap() {
                 var url = "Fragen.php?id=" + id;
                 window.location = url;
             }
+
         })(marker, i));
     }
 
