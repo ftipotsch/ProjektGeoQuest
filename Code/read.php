@@ -3,24 +3,36 @@
 <head>
     <title></title>
     <link rel ="" href="">
-    <link rel="stylesheet" href="style.css">
-    <script src="jquery-3.2.1.js"></script>
+    <link   href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<?php
-//LINKS
-?>
-<div id="div">
-    <table id="table" style="width:100%">
-        <tr>
-            <th><a href="create.php">Create</a></th>
-            <th><a href="read.php">Read</a></th>
-            <th><a href="update.php">Update</a></th>
-            <th><a href="delete.php">Delete</a></th>
-            <th><a href="index.php">Index</a></th>
-        </tr>
-    </table>
-</div>
-<h1>READ</h1>
+
+<div class="container">
+    <div class="row">
+        <h1>READ</h1>
+    </div>
+    <div class="row">
+
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>E-Mail</th>
+                <th>Points</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            require "class.question.php";
+            User::getList();
+            ?>
+            <table id="txtHint"class="table table-striped table-bordered"></table>
+            </tbody>
+        </table>
+
 </body>
 </html>
