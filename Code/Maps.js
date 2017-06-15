@@ -5,6 +5,7 @@ var map;
 var id = 0;
 
 
+
 function initMap() {
     var myLatlng = {lat: 47.2105455, lng: 10.7184836};
     var map = new google.maps.Map(document.getElementById('map'), {

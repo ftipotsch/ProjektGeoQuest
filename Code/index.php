@@ -6,7 +6,9 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <script src="Maps.js"></script>
+    <?php
+        require "Maps.php"
+    ?>
     <style>
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */

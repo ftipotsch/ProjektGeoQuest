@@ -7,7 +7,7 @@
  */
 class Database
 {
-    private static $dbName = 'db_name' ;
+    private static $dbName = 'geoquest' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
     private static $dbUserPassword = '';
