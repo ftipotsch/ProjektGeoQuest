@@ -12,7 +12,8 @@ interface DatabaseObject{
 }
 
 
-class User implements DatabaseObject{
+class User implements DatabaseObject
+{
     private $id;
     private $username;
     private $firstname;
@@ -42,7 +43,7 @@ class User implements DatabaseObject{
 
     public function get()
     {
-        require "connect.php";
+        require "../connect.php";
         if (!empty($_POST)) {
             // keep track validation errors
 
@@ -53,7 +54,7 @@ class User implements DatabaseObject{
             if (empty($id)) {
                 $valid = false;
             }
-            include 'connect.php';
+            include '../connect.php';
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "SELECT * FROM Users where id = ?";
@@ -68,7 +69,7 @@ class User implements DatabaseObject{
     public function getList()
     {
 
-        require 'connect.php';
+            require '../connect.php';
         $pdo = Database::connect();
         $sql = 'SELECT * FROM Users ORDER BY id';
         foreach ($pdo->query($sql) as $row) {
@@ -91,7 +92,7 @@ class User implements DatabaseObject{
 
     public function create()
     {
-        require "connect.php";
+        require "../connect.php";
         if (!empty($_POST)) {
             // keep track validation errors
 
@@ -130,21 +131,21 @@ class User implements DatabaseObject{
                 $q = $pdo->prepare($sql);
                 $q->execute(array($benutzer, $passwort, $vorname, $nachname, $email));
                 Database::disconnect();
-                header("Location: index.php");
+                header("Location: ../index.php");
             }
         }
     }
 
     public function save()
     {
-        require "connect.php";
+        require "../connect.php";
         $id = null;
         if (!empty($_GET['id'])) {
             $id = $_REQUEST['id'];
         }
 
         if (null == $id) {
-            header("Location: index.php");
+            header("Location: ../index.php");
         }
 
         if (!empty($_POST)) {
@@ -199,7 +200,7 @@ class User implements DatabaseObject{
                 $q = $pdo->prepare($sql);
                 $q->execute(array($username, $password, $firstname, $lastname, $email, $points, $id));
                 Database::disconnect();
-                header("Location: index.php");
+                header("Location: ../index.php");
             }
         } else {
             $pdo = Database::connect();
@@ -223,7 +224,7 @@ class User implements DatabaseObject{
     {
 
 
-        require "connect.php";
+        require "../connect.php";
         if (!empty($_POST)) {
             // keep track validation errors
 
@@ -244,60 +245,11 @@ class User implements DatabaseObject{
                 $q = $pdo->prepare($sql);
                 $q->execute(array($id));
                 Database::disconnect();
-                header("Location: index.php");
+
             }
         }
     }
 
-
-    /**
-     * Getter for some private attributes
-     * @return mixed $property
-     */
-    public function __get($property)
-    {
-        if (property_exists($this, $property)) {
-            return $this->$property;
-        }
-        return null;
-    }
-
-    /**
-     * Setter for some private attributes
-     * @return mixed $name
-     * @return mixed $value
-     */
-    public function __set($property, $value)
-    {
-        if (property_exists($this, $property)) {
-            $this->$property = $value;
-        }
-    }
 }
-
-
-if (isset($_POST["submit"])) {
-    if (isset($_POST["price"])) {
-        if (!is_numeric($_POST["price"]) || $_POST["price"] <= 1 || $_POST["price"] != round($_POST["price"])) {
-            echo("Keine richtige Nummer eingegeben ");
-            exit();
-        } else {
-            echo("price correct ");
-        }
-    } else {
-
-    }
-    if(isset($_POST["date"])){
-
-        $d = DateTime::createFromFormat('Y-m-d', $_POST["date"]);
-        if($d && $d->format('Y-m-d') === $_POST["date"]){
-            echo ("datum correct ");
-        } else {
-            echo("Kein Datum ");
-            exit();
-        }
-    }
-}
-
 
 ?>

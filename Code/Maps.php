@@ -1,6 +1,9 @@
 
-
-<script>
+<script type='text/javascript'>
+    <?php
+    require "CRUDQuestion/class.question.php";
+    $php_array = Question::getQuestion();
+    ?>
 
     /**
      * Created by Floo on 07.06.2017.
@@ -17,6 +20,8 @@
             ,
             center: myLatlng
         });
+        var user = [<?php echo $php_array?>
+
         var locations = [
             ['Imst', 47.240238, 10.739595, 1],
             ['Haiming', 47.255817, 10.883267, 2],
@@ -28,17 +33,17 @@
 
         var marker, i;
 
-        for (i = 0; i < locations.length; i++) {
+        for (i = 0; i < user.length; i++) {
             marker = new google.maps.Marker({
-                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                position: new google.maps.LatLng(user[i][7], user[i][8]),
                 map: map,
-                titel: locations[i][0]
+                titel: user[i][0]
             });
             google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
                     //infowindow.setContent(locations[i][0]);
                     //infowindow.open(map, marker);
-                    id = locations[i][3]
+                    id = user[i][0]
                     var url = "Fragen.php?id=" + id;
                     window.location = url;
                 }

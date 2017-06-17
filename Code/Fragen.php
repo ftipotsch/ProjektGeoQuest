@@ -5,11 +5,11 @@
     <link rel ="" href="">
 </head>
 <body>
-<h1>Frage:</h1>
 <?php
-    $id = $_GET["id"];
-    //auslessen der Frage mit ID 1;
-    echo "ID:" . $id;
+    $id = $_GET['id'];
+require "CRUDQuestion/class.question.php";
+Question::zeigeFrage($id);
+Question::pruefeAntwort();
 ?>
 </body>
 </html>

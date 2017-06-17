@@ -46,7 +46,7 @@ $sql = "CREATE TABLE Questions (
     answer2 VARCHAR (100) NOT NULL,
     answer3 VARCHAR (100) NOT NULL,
     answer4 VARCHAR (100) NOT NULL,
-    creator VARCHAR(50) NOT NULL,
+    correct VARCHAR (100) NOT NULL;
     x_coordinates VARCHAR (30),
     y_coordinates VARCHAR (30),
     rating INT(9)
@@ -60,6 +60,8 @@ catch(PDOException $e)
 {
     echo $sql . "<br>" . $e->getMessage();
 }
+
+
 
 
 $conn = null;

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
@@ -33,10 +34,10 @@
 <div id="div">
     <table id="table" style="width:100%">
         <tr>
-            <th><a href="create.php">Create</a></th>
-            <th><a href="read.php">Read</a></th>
-            <th><a href="update.php">Update</a></th>
-            <th><a href="delete.php">Delete</a></th>
+            <th><a href="CRUDUser/create.php">Create User</a></th>
+            <th><a href="CRUDUser/read.php">Read User List</a></th>
+            <th><a href="CRUDQuestion/qcreate.php">Create Question</a></th>
+            <th><a href="CRUDQuestion/qread.php">Read Question List</a></th>
             <th><a href="index.php">Index</a></th>
         </tr>
     </table>

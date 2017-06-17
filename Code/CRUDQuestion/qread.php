@@ -3,7 +3,7 @@
 <head>
     <title></title>
     <link rel ="" href="">
-    <link   href="css/bootstrap.min.css" rel="stylesheet">
+    <link   href="../css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -17,18 +17,23 @@
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
-                <th>Username</th>
-                <th>Password</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>E-Mail</th>
-                <th>Points</th>
+                <th>Question</th>
+                <th>Answer 1</th>
+                <th>Answer 2</th>
+                <th>Answer 3</th>
+                <th>Answer 4</th>
+                <th>Correct answer</th>
+                <th>X-Coordinates</th>
+                <th>Y-Coordinates</th>
+                <th>Rating</th>
+                <th></th>
+
             </tr>
             </thead>
             <tbody>
             <?php
             require "class.question.php";
-            User::getList();
+            Question::getList();
             ?>
             <table id="txtHint"class="table table-striped table-bordered"></table>
             </tbody>

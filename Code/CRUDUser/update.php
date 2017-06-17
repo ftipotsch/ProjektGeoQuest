@@ -1,6 +1,6 @@
 <?php
 
-require 'class.question.php';
+require 'class.user.php';
 User::save();
 
 ?>
@@ -15,13 +15,9 @@ User::save();
 
 <body>
 
-<form class="form-horizontal" method="post" action="update.php?id=<?php echo $id?>
-
-
+<form class="form-horizontal" method="post" action="update.php?id=<?php echo $_GET['id']?>"
 
     <legend><h1> Update a User </h1> </legend>
-
-
     <div class="form-group">
 <label class="col-md-4 control-label" for="username">Username</label>
 <div class="col-md-4">

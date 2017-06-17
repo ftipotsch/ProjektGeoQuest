@@ -1,6 +1,6 @@
 <?php
 
-require 'class.question.php';
+require 'class.user.php';
 User::create();
 
 ?>
