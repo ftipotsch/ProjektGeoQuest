@@ -388,6 +388,10 @@ class Question implements DatabaseObject
                 $sql = "UPDATE Users  SET points = points + 1 WHERE id = '$id' ";
                 $q = $pdo->prepare($sql);
                 $q->execute(array());
+                $sql = "SELECT Punkte FROM Benutzer WHERE id = '$id'";
+                foreach ($pdo->query($sql) as $row) {
+                    $_SESSION['points'] = $row['Punkte'];
+                }
                 header("Location: index.php");
             } else {
                 echo "Falsche Antwort";
