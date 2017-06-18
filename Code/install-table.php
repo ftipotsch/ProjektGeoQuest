@@ -19,7 +19,7 @@ try {
     firstname VARCHAR(30) NOT NULL,
     lastname VARCHAR(30) NOT NULL,
     email VARCHAR(50),
-    points INT(9)
+    points INT(9) DEFAULT 0
     )";
 
     // use exec() because no results are returned
