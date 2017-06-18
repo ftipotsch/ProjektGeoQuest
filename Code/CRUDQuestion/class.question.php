@@ -382,8 +382,13 @@ class Question implements DatabaseObject
             foreach ($pdo->query($sql) as $row) {
                  $richtig = $row['richtig'];
             }
-            if ($richtig != null) {
+            if($richtig != null) {
                 echo "Richtige Antwort";
+                $id = $_SESSION['id'];
+                $sql = "UPDATE Users  SET points = points + 1 WHERE id = '$id' ";
+                $q = $pdo->prepare($sql);
+                $q->execute(array());
+                header("Location: index.php");
             } else {
                 echo "Falsche Antwort";
             }
@@ -393,5 +398,6 @@ class Question implements DatabaseObject
         }
         Database::disconnect();
 }
+
 }
 

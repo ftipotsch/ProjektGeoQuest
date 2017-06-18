@@ -1,10 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Kevin Glatz
- * Date: 24.05.2017
- * Time: 13:06
- */
+
+    session_start();
+
 class Database
 {
     private static $dbName = 'geoquest' ;

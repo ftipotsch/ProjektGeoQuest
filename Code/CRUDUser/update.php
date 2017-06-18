@@ -4,7 +4,9 @@ require 'class.user.php';
 User::save();
 
 ?>
-
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">

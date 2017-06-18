@@ -249,7 +249,47 @@ class User implements DatabaseObject
             }
         }
     }
+    function login(){
+        
+        require_once "connect.php";
+        if (isset ($_SESSION['id'])) {
+            header("Location: User.php");
+        } else {
+        if (isset($_POST['submit'])){
+            $valid = true;
+            if (isset($_POST['username'])){
+                $username = $_POST['username'];
+            } else{
+                $valid = false;
+            }
+            if (isset($_POST['password'])){
+                $password = $_POST['password'];
+                $id =0;
+            } else{
+                $valid = false;
+            }
+            if ($valid) {
+                $pdo = Database::connect();
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sql = 'SELECT username, password, id, points FROM users WHERE username ="'.$_POST['username'].'"  AND password ="'.$_POST['password'].'"';
+                foreach ($pdo->query($sql) as $row) {
+                    $username = $row['username'];
+                    $password = $row['password'];
+                    $id = $row['id'];
+                    $points = $row['points'];
+                }
+                if($username && $password && $id != null) {
+                    $_SESSION['username'] = $username;
+                    $_SESSION['password'] = $password;
+                    $_SESSION['id'] = $id;
+                    $_SESSION['points']= $points;
+                } else {
+                    echo "Falsche Daten";
+                }
+            }
+        }
+    }
 
-}
+}}
 
 ?>

@@ -3,11 +3,13 @@
 
 <head>
 
+
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <?php
+
         require "Maps.php"
     ?>
     <style>
@@ -28,9 +30,7 @@
 </head>
 <body>
 
-<?php
-//LINKS
-?>
+
 <div id="div">
     <table id="table" style="width:100%">
         <tr>
@@ -38,6 +38,7 @@
             <th><a href="CRUDUser/read.php">Read User List</a></th>
             <th><a href="CRUDQuestion/qcreate.php">Create Question</a></th>
             <th><a href="CRUDQuestion/qread.php">Read Question List</a></th>
+            <th><a href="Login.php">Login</a></th>
             <th><a href="index.php">Index</a></th>
         </tr>
     </table>
