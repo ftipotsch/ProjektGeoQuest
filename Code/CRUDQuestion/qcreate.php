@@ -60,9 +60,9 @@ Question::create();
     </div>
     <br/>
     <div class="form-group">
-        <label class="col-md-4 control-label" for="creator">Creator</label>
+        <label class="col-md-4 control-label" for="richtig">Correct Answer</label>
         <div class="col-md-4">
-            <input type="text" id="creator" name="creator" placeholder="" class="form-control input-md"  ?>
+            <input type="text" id="richtig" name="richtig" placeholder="" class="form-control input-md"  ?>
         </div>
     </div>
     <br/>

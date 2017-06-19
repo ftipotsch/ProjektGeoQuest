@@ -129,7 +129,7 @@ class Question implements DatabaseObject
             $answer2 = $_POST['answer2'];
             $answer3 = $_POST['answer3'];
             $answer4 = $_POST['answer4'];
-            $creator = $_POST['ricthig'];
+            $creator = $_POST['richtig'];
             $x_coordinates = $_POST['x_coordinates'];
             $y_coordinates = $_POST['y_coordinates'];
             $rating = $_POST['rating'];
@@ -170,7 +170,7 @@ class Question implements DatabaseObject
             if ($valid) {
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "INSERT INTO Questions (question, answer1, answer2, answer3, answer4, creator, x_coordinates, y_coordinates, rating ) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO Questions (question, answer1, answer2, answer3, answer4, richtig, x_coordinates, y_coordinates, rating ) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $q = $pdo->prepare($sql);
                 $q->execute(array($question, $answer1, $answer2, $answer3, $answer4, $creator, $x_coordinates, $x_coordinates, $rating));
                 Database::disconnect();
@@ -237,7 +237,7 @@ class Question implements DatabaseObject
             if ($valid) {
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "UPDATE Questions  SET question = ?, answer1 = ?, answer2 = ?, answer3 = ?, answer4 = ?, creator = ?, x_coordinates = ?, y_coordinates = ?, rating = ?  WHERE id = ?";
+                $sql = "UPDATE Questions  SET question = ?, answer1 = ?, answer2 = ?, answer3 = ?, answer4 = ?, richtig = ?, x_coordinates = ?, y_coordinates = ?, rating = ?  WHERE id = ?";
                 $q = $pdo->prepare($sql);
                 $q->execute(array($question, $answer1, $answer2, $answer3, $answer4, $creator, $x_coordinates, $y_coordinates, $rating, $id));
                 Database::disconnect();
@@ -388,9 +388,9 @@ class Question implements DatabaseObject
                 $sql = "UPDATE Users  SET points = points + 1 WHERE id = '$id' ";
                 $q = $pdo->prepare($sql);
                 $q->execute(array());
-                $sql = "SELECT Punkte FROM Benutzer WHERE id = '$id'";
+                $sql = "SELECT points FROM Users WHERE id = '$id'";
                 foreach ($pdo->query($sql) as $row) {
-                    $_SESSION['points'] = $row['Punkte'];
+                    $_SESSION['points'] = $row['points'];
                 }
                 header("Location: index.php");
             } else {
