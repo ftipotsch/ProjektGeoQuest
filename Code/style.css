@@ -1,0 +1,29 @@
+#table{
+    font-family: "Raleway Light";
+    font-size: 14px;
+    font-stretch: inherit;
+    background-color: rgba(0,0,0,0.4);
+}
+#div{
+    background-color: rgba(0,0,0,0.4);
+}
+a:link {
+    color: White;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: White;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: grey;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:active {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
