@@ -137,31 +137,31 @@ class Question implements DatabaseObject
 
             // validate input
             $valid = true;
-            if (empty($question)) {
+            if ($question == null) {
                 $valid = false;
             }
-            if (empty($answer1)) {
+            if ($answer1 == null) {
                 $valid = false;
             }
-            if (empty($answer2)) {
+            if ($answer2 == null) {
                 $valid = false;
             }
-            if (empty($answer3)) {
+            if ($answer3 == null) {
                 $valid = false;
             }
-            if (empty($answer4)) {
+            if ($answer4 == null) {
                 $valid = false;
             }
-            if (empty($creator)) {
+            if ($creator == null) {
                 $valid = false;
             }
-            if (empty($x_coordinates)) {
+            if ($x_coordinates == null) {
                 $valid = false;
             }
-            if (empty($y_coordinates)) {
+            if ($y_coordinates== null) {
                 $valid = false;
             }
-            if (empty($rating)) {
+            if ($rating == null) {
                 $valid = false;
             }
 
@@ -172,9 +172,9 @@ class Question implements DatabaseObject
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $sql = "INSERT INTO Questions (question, answer1, answer2, answer3, answer4, richtig, x_coordinates, y_coordinates, rating ) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $q = $pdo->prepare($sql);
-                $q->execute(array($question, $answer1, $answer2, $answer3, $answer4, $creator, $x_coordinates, $x_coordinates, $rating));
+                $q->execute(array($question, $answer1, $answer2, $answer3, $answer4, $creator, $x_coordinates, $y_coordinates, $rating));
                 Database::disconnect();
-                header("Location: qcreate.php");
+                header("Location: ../index.php");
             }
         }
     }
